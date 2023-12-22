@@ -1,1 +1,27 @@
 /* Posts Page CSS */
+h1 {
+    color: #0a5383;
+    padding: 40px;
+    font-size: 80px;
+}
+.center-content {
+    text-align: center;
+}
+body{
+    background-color: rgb(196, 196, 196);
+}
+.card-temp {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+footer {
+    background-color: #16384e;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 80px;
+    border-radius: 10px;
+}
