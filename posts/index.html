@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -18,43 +17,71 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     ></script>
-
     <!-- Global CSS (CSS rules you want applied to all pages) -->
-    <link rel="stylesheet" href="../global.css" />
-
+    <link rel="stylesheet" href="../styles/global.css" />
     <!-- Page-specific CSS -->
     <link rel="stylesheet" href="./posts.css" />
-
     <title>/POSTS</title>
-
     <!-- Run BEFORE page is finished loading (before window.onload): -->
-
     <script src="../services/services-base.js"></script>
     <script src="../services/auth-service.js"></script>
     <script src="../services/posts-service.js"></script>
+    <script src="../services/like-service.js"></script>
     <script>
-      if (isLoggedIn() === false) window.location.replace("/");
+      //   if (isLoggedIn() === false) window.location.replace("/");
     </script>
   </head>
   <body>
     <header>
       <h1>POSTS PAGE</h1>
     </header>
-
     <h1 class="mb-5 center-content">Microblog Lite</h1>
-    <!--<template id="postDetailsTemplate"> -->
-    <div class="card w-75 card-temp">
-      <h4 class="card-header" id="username">Username goes here</h4>
-      <div class="card-body">
-        <p class="card-text" id="postText">Post text goes here</p>
-        <div class="card-footer">
-          <p class="card-text" id="postTimestamp">Timestamp goes here</p>
-          <p class="card-text" id="postLikes">Likes go here  ❤️
-        </p>
+    <select id="postsFilter" class="form-select">
+      <option>Select filter</option>
+      <option>Show all</option>
+      <option>Oldest to newest</option>
+      <option>Newest to oldest</option>
+      <option>Most Likes</option>
+    </select>
+    <template id="postDetailsTemplate">
+      <div class="card w-75 card-temp">
+        <h4 class="card-header" id="username">Username goes here</h4>
+        <div class="card-body">
+          <!-- <a class="card-text" id="postId"></a> -->
+          <p class="card-text" id="postText">Post text goes here</p>
+          <div class="card-footer">
+            <div
+              class="d-grid gap-2 d-md-flex justify-content-md-end"
+              id="deletePost"
+            >
+              <!-- <button class="btn btn-primary me-md-2" type="button">Button</button> -->
+              <!-- <button class="btn btn-danger" id="deletePost"type="button">delete</button> -->
+            </div>
+            <p class="card-text" id="postLikes">
+              Likes: <span id="likeCount">0</span>
+              <button class="btn" id="likeby" type="button">:heart:</button>
+            </p>
+            <p class="card-text" id="Timestamp">
+              posted: <span id="postTimestamp"> </span>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <!--  </template> -->
+    </template>
+    <div id="postsContainer"></div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-md-end">
+        <li class="page-item disabled">
+          <a class="page-link">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link active" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
     <footer>
       <div class="container">
         <div class="row">
@@ -88,7 +115,6 @@
         <p>&copy; 2023 My Blog. All rights reserved.</p>
       </div>
     </footer>
-
     <!-- Page-specific code -->
     <script src="./posts.js"></script>
   </body>
