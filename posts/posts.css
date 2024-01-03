@@ -55,3 +55,10 @@ header h1 {
     padding: 20px;
 
 }
+#postsFilter {
+    width: 20%;
+    margin-left: 50px;
+}
+nav > ul {
+    margin-right: 50px;
+}
