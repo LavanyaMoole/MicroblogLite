@@ -33,10 +33,16 @@
   </head>
   <body>
     <header>
-      <h1>POSTS PAGE</h1>
+      <h1 class="mb-5 center-content">Microblog Lite</h1>
+      <nav>
+        <div class="container-md">
+          <a class="navbar-item active" href="../posts/index.html">Posts </a>|
+          <a class="navbar-item" href="#">Add Posts </a>|
+          <a class="navbar-item" href="#" id="logout">Log Out</a>
+        </div>
+      </nav>
     </header>
-    <h1 class="mb-5 center-content">Microblog Lite</h1>
-    <select id="postsFilter" class="form-select w-25">
+    <select id="postsFilter" class="form-select">
       <option>Select filter</option>
       <option>Show all</option>
       <option>Oldest to newest</option>
