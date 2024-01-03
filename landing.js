@@ -2,16 +2,17 @@
 
 "use strict";
 
-let authService
-
+let authService;
+let loginForm;
 document.addEventListener("DOMContentLoaded", () => {
     authService = new AuthService()
 
     if(authService.isLoggedIn()) {
-        window.location.replace("/posts")
+        // window.location.replace("/posts")
+        window.location.href = "./posts/index.html";
     }
 
-    const loginForm = document.querySelector("#login");
+    loginForm = document.querySelector("#login");
     loginForm.addEventListener("submit", login)
 
 })
@@ -28,9 +29,10 @@ function login (event) {
         password: loginForm.password.value,
     }
 
+    console.log(loginData)
     // Disables the button after the form has been submitted already:
     loginForm.loginButton.disabled = true;
 
     // Time to actually process the login using the function from auth.js!
-    login(loginData);
+    authService.login(loginData);
 };
