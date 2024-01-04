@@ -1,34 +1,26 @@
+let userService;
+let registrationForm;
+
 document.addEventListener("DOMContentLoaded", () => {
-    const registration = document.getElementById("registration");
-    registration.addEventListener("submit",register);
+   registrationForm = document.getElementById("registration");
+    registrationForm.addEventListener("submit",registration);
+    userService = new UserService();
 });
 
-function register(event) {
+function registration(event) {
     event.preventDefault();
 
-    const username = document.getElementById("userNameInput").value;
-    const fullName = document.getElementById("fullNameInput").value;
-    const password = document.getElementById("passwordInput").value;
-
+    
     const userData = {
-        username: username,
-        fullName: fullName,
-        password: password
+        username: registrationForm.usernameInput,
+        fullName: registrationForm.fullnameInput,
+        password: registrationForm.passwordInput
     }
-   
-};
-
-fetch("http://localhost:5000/api/users", {
-    method: "POST",
-    headers: {
-        "content-Type" : "aplication/json"
-    },
-    body: JSON.stringify(userData),
 
  
-})
 
-.then(response => response.json())
+
+userService.createUser(userData)
 .then(data => {
     window.location.href = "index.html";
 })
@@ -36,6 +28,8 @@ fetch("http://localhost:5000/api/users", {
 .catch(error => {
     console.error("Error:", error);
 })
+
+}
 
 
 
