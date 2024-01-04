@@ -1,10 +1,9 @@
-
-class PostService extends ServicesBase {
+class LikeService extends ServicesBase {
 
     apiBaseUrl = ""
     constructor() {
         super();
-        this.apiBaseUrl = this.baseUrl + "/api/posts"
+        this.apiBaseUrl = this.baseUrl + "/api/likes"
     }
 
     logindata() {
@@ -13,40 +12,36 @@ class PostService extends ServicesBase {
         let data = JSON.parse(logindata);
         return data;
     }
-
-    async getAllPosts() {
+    async addLike(postId) {
 
         let tokenData = this.logindata();
+        console.log(tokenData)
         const requestInfo = {
+            method: "POST",
+            body: JSON.stringify({ postId }),
             headers: {
+                "Content-type": "application/json;charset=UTF-8",
                 "Authorization": `Bearer ${tokenData.token}`
             }
         }
 
-        let response = await fetch(this.apiBaseUrl, requestInfo);
-        let posts = await response.json();
-        return posts;
-
-    }
-    async getPost(id) {
-
-        let response = await fetch(`${this.apiBaseUrl}/${id}`);
-        let post = await response.json();
-        return post;
+        console.log(requestInfo.body)
+        return fetch(this.apiBaseUrl, requestInfo).then(response => response.json())
     }
 
-
-    async delete(id) {
+    async delete(likeId) {
 
         let tokenData = this.logindata();
-
-        let url = `${this.apiBaseUrl}/${id}`
         const requestInfo = {
             method: "DELETE",
             headers: {
                 "Authorization": `Bearer ${tokenData.token}`
             }
         }
-        return fetch(url, requestInfo)
+
+        return fetch(`${this.apiBaseUrl}/${likeId}`, requestInfo).then(response => response.json())
     }
+
+
+
 }

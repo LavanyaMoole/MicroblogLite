@@ -1,1 +1,64 @@
 /* Posts Page CSS */
+h1 {
+    color: rgb(13 110 253);
+    padding: 40px;
+    font-size: 80px;
+}
+.center-content {
+    text-align: center;
+}
+body{
+    background-color: rgb(196, 196, 196);
+}
+.card-temp {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 80px;
+    border-radius: 10px;
+}
+nav {
+
+    padding: 15px;
+    text-align: center;
+}
+
+header > nav a {
+    color: rgb(14, 12, 12);
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+footer > div a {
+    color: rgb(14, 12, 12);
+    margin: 0 15px;
+}
+
+.navbar-item.active {
+    color: #0a0a0a;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+header h1 {
+    background-color: #333;
+    color: rgb(255, 251, 251);
+    text-align: center;
+    padding: 20px;
+
+}
+#postsFilter {
+    width: 20%;
+    margin-left: 50px;
+}
+nav > ul {
+    margin-right: 50px;
+}

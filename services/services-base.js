@@ -1,7 +1,8 @@
 
 class ServicesBase {
 
-    baseUrl = "http://microbloglite.us-east-2.elasticbeanstalk.com"
+    baseUrl = "http://microbloglite.us-east-2.elasticbeanstalk.com/"
+    // http://localhost:5000
     // Primary Server:
     //      http://microbloglite.us-east-2.elasticbeanstalk.com/
     // Backup servers:
