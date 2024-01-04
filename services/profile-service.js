@@ -20,8 +20,6 @@ class ProfileService extends ServicesBase {
             body: JSON.stringify(post),
             headers: {
                 "Content-type": "application/json;charset=UTF-8",
-
-                // "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkxhdmFueWE5NiIsImlhdCI6MTcwMzI4NDc3MCwiZXhwIjoxNzAzMzcxMTcwfQ.vI-LBz82sW2zHkxlhL0snV5FWmo-3eS9tXRf_eXHIho`
                 "Authorization": `Bearer ${tokenData.token}`
             }
         }
