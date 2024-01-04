@@ -21,13 +21,13 @@ function registration(event) {
 
 
 userService.createUser(userData)
-.then(data => {
-    window.location.href = "index.html";
-})
 
-.catch(error => {
-    console.error("Error:", error);
-})
+    window.location.href = "../posts/index.html";
+
+
+// .catch(error => {
+//     console.error("Error:", error);
+// })
 
 }
 

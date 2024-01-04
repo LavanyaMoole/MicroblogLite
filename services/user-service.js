@@ -12,7 +12,6 @@ class UserService extends ServicesBase {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer" + sessionStorage.token,
             },
             body: JSON.stringify(user),
         };
