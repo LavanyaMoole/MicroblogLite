@@ -49,7 +49,7 @@ async function registerUser(event) {
                     message = "User registered successfully";
                     displaySuccess(message);
                     console.log("User registered successfully:", newuser);
-                    window.location.href= "../posts/index.html"
+                    // window.location.href= "../posts/index.html"
                     // Display a success message to the user
                 }
             } catch (error) {
