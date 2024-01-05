@@ -27,7 +27,7 @@ class AuthService
     // logged in. It returns either `true` or `false`.
     isLoggedIn()
     {
-        const loginData = getLoginData()
+        const loginData = this.getLoginData();
         return Boolean(loginData.token)
     }
 
@@ -50,12 +50,12 @@ class AuthService
             body: JSON.stringify(loginData),
         }
 
-        return fetch(apiBaseURL + "/auth/login", options)
+        return fetch(this.apiBaseURL + "/auth/login", options)
             .then(response => response.json())
             .then(loginData =>
             {
                 window.localStorage.setItem("login-data", JSON.stringify(loginData))
-                window.location.assign("/posts")  // redirect
+                window.location.assign("./posts/index.html")  // redirect
 
                 return loginData
             })
@@ -68,7 +68,7 @@ class AuthService
     // `fetch()` requests you may need to write.
     async logout()
     {
-        const loginData = getLoginData()
+        const loginData = this.getLoginData()
 
         // GET /auth/logout
         const options = {
@@ -82,7 +82,7 @@ class AuthService
             },
         }
 
-        fetch(apiBaseURL + "/auth/logout", options)
+        fetch(this.apiBaseURL + "/auth/logout", options)
             .then(response => response.json())
             .then(data => console.log(data))
             .finally(() =>
