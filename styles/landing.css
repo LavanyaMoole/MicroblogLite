@@ -2,10 +2,10 @@
 body {
 
     background-image: url('../images/login.jpg');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.9;
+    opacity: 0.93;
 }
 
 /* Center the login form vertically */
