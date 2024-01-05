@@ -30,7 +30,14 @@ class PostService extends ServicesBase {
     }
     async getPost(id) {
 
-        let response = await fetch(`${this.apiBaseUrl}/${id}`);
+        let tokenData = this.logindata();
+        const requestInfo = {
+            headers: {
+                "Authorization": `Bearer ${tokenData.token}`
+            }
+        }
+
+        let response = await fetch(`${this.apiBaseUrl}/${id}`,requestInfo);
         let post = await response.json();
         return post;
     }
