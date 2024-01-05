@@ -1,13 +1,11 @@
 /* Landing Page CSS */
 body {
-
     background-image: url('../images/login.jpg');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.93;
 }
-
 /* Center the login form vertically */
 .min-height {
     min-height: 100vh;
@@ -15,14 +13,12 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 /* Style the login form */
 .login {
     background-color: #fff;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(73, 83, 85, 0.2);
 }
-
 .login h2 {
     font-size: 1.5rem;
     text-align: center;
@@ -58,7 +54,6 @@ body {
     font-size: 0.9rem;
     color: rgb(56, 54, 75);
 }
-
 .forgot-password:hover,
 .signup-link:hover {
     font-size: 0.9rem;

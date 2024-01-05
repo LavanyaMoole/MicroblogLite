@@ -2,12 +2,15 @@ let profileService;
 let postText;
 let post;
 let addPostButton;
+let logout;
+// let authService;
 document.addEventListener("DOMContentLoaded", () => {
+    // authService = new AuthService();
     profileService = new ProfileService();
-
     addPostButton = document.getElementById("addPostButton");
     addPostButton.addEventListener("click", addPostButtonClicked)
-    postText.value = "";
+    logout = document.getElementById("logout");
+    logout.addEventListener("click", logOut)
 
 })
 
@@ -21,7 +24,13 @@ function addPostButtonClicked(event) {
     }
 
     profileService.addPost(post);
-
-
     postText.value = "";
+    alert("post added successfully");
+
+}
+
+function logOut() {
+
+    console.log("logout success")
+    authService.logout();
 }
