@@ -3,9 +3,9 @@ let postText;
 let post;
 let addPostButton;
 let logout;
-let authService;
+// let authService;
 document.addEventListener("DOMContentLoaded", () => {
-    authService = new AuthService();
+    // authService = new AuthService();
     profileService = new ProfileService();
     addPostButton = document.getElementById("addPostButton");
     addPostButton.addEventListener("click", addPostButtonClicked)
