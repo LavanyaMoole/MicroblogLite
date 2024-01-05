@@ -45,6 +45,9 @@ This web application allows users to perform various actions related to blogging
 - VsCode IDE
 - Git
 - GitHub
+- MySQL
+- NodeJS
+- Express
 
 ## Technologies Used
 - HTML
@@ -53,3 +56,7 @@ This web application allows users to perform various actions related to blogging
 - JavaScript
 
 ## Authors
+- https://github.com/Jcaro-041
+- https://github.com/LavanyaMoole
+- https://github.com/AJCamposss
+- https://github.com/DeAsianDragon
