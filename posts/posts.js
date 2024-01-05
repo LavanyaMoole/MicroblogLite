@@ -119,7 +119,7 @@ function displayPost(post) {
                 console.error('Error deleting post:', error);
             }
         } else {
-            
+
             alert("You cannot delete the post");
             console.log("You cannot delete this post");
         }
