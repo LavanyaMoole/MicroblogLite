@@ -1,4 +1,3 @@
-<!-- POSTS page -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +11,7 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
+    <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
@@ -28,7 +28,9 @@
     <script src="../services/posts-service.js"></script>
     <script src="../services/like-service.js"></script>
     <script>
-      //   if (isLoggedIn() === false) window.location.replace("/");
+      let authService = new AuthService();
+      if (authService.isLoggedIn() === false)
+        window.location.replace("../index.html");
     </script>
   </head>
   <body>
@@ -38,14 +40,12 @@
         <div class="container-md">
           <a class="navbar-item active" href="../posts/index.html">Posts </a>|
           <a class="navbar-item" href="/profile/index.html">Add Posts </a>|
-          <a class="navbar-item" href="/profile/index.html">Profile</a>|
-          <a class="navbar-item" href="/registration/index.html">Registration</a>|
           <a class="navbar-item" href="#" id="logout">Log Out</a>
         </div>
       </nav>
     </header>
     <select id="postsFilter" class="form-select">
-      <option>Select filter</option>
+      <option>Filter Posts</option>
       <option>Show all</option>
       <option>Oldest to newest</option>
       <option>Newest to oldest</option>
@@ -55,16 +55,12 @@
       <div class="card w-75 card-temp">
         <h4 class="card-header" id="username">Username goes here</h4>
         <div class="card-body">
-          <!-- <a class="card-text" id="postId"></a> -->
           <p class="card-text" id="postText">Post text goes here</p>
           <div class="card-footer">
             <div
               class="d-grid gap-2 d-md-flex justify-content-md-end"
               id="deletePost"
-            >
-              <!-- <button class="btn btn-primary me-md-2" type="button">Button</button> -->
-              <!-- <button class="btn btn-danger" id="deletePost"type="button">delete</button> -->
-            </div>
+            ></div>
             <p class="card-text" id="postLikes">
               Likes: <span id="likeCount">0</span>
               <button class="btn" id="likeby" type="button">❤️</button>
@@ -76,7 +72,7 @@
         </div>
       </div>
     </template>
-    <div id="postsContainer"></div>
+    <div id="postsContainer" class="postsContainer"></div>
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-md-end">
         <li class="page-item disabled">
@@ -96,9 +92,15 @@
           <div class="col-md-6">
             <h4>About Us</h4>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              auctor, nunc id aliquam ultricies, urna elit tincidunt elit, vel
-              tincidunt enim nisl id nunc.
+              Welcome to Microblog Lite, where words come alive. Our blog is a
+              space for inspiring stories of personal growth and resilience.
+              We're on a mission to empower individuals to overcome challenges
+              and share our passion for wellness, self-discovery, and positive
+              living. Join us on this journey of inspiration, learning, and
+              self-discovery. Together, let's explore the boundless
+              possibilities that words can create and find strength in shared
+              narratives. Welcome to a community that believes in the
+              transformative power of stories. Welcome to Microblog Lite.
             </p>
           </div>
           <div class="col-md-3">
@@ -119,8 +121,9 @@
           </div>
         </div>
       </div>
+
       <div class="text-center">
-        <p>&copy; 2023 My Blog. All rights reserved.</p>
+        <p>&copy; 2023 Microblog Lite. All rights reserved.</p>
       </div>
     </footer>
     <!-- Page-specific code -->

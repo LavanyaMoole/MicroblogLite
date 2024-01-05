@@ -8,14 +8,21 @@ let deletePostButton;
 let likeButton;
 let isLike;
 let postsFilter;
+let logout;
+// let authService;
+let token = JSON.parse(localStorage.getItem('login-data'))
+
 document.addEventListener("DOMContentLoaded", async () => {
     postService = new PostService();
     likeService = new LikeService();
+    // authService=new AuthService();
     postsFilter = document.getElementById('postsFilter');
     posts = await getPosts();
     console.log(posts)
     displayPosts(posts);
     postsFilter.addEventListener('change', filterPosts);
+    logout = document.getElementById("logout");
+    logout.addEventListener("click", logOut)
 
 })
 //get all posts
@@ -98,11 +105,23 @@ function displayPost(post) {
         }
     })
     //deleting the post when clicked on delete button
-    deletePostButton.addEventListener("click", () => {
+    deletePostButton.addEventListener("click", async () => {
         const isDeleteConfirmed = confirm(`You are about to delete ${post.text}, do you want to continue?`)
-        if (isDeleteConfirmed) {
-            postService.delete(post._id)
-            location.href = "./index.html"
+        if (isDeleteConfirmed && post.username == token.username) {
+            try {
+                console.log("post deleted")
+                //deleting the post asynchronously
+                await postService.delete(post._id);
+                // Redirect to the index page after successful deletion
+                location.href = "./index.html";
+            } catch (error) {
+                // Handle errors, e.g., display an alert
+                console.error('Error deleting post:', error);
+            }
+        } else {
+            
+            alert("You cannot delete the post");
+            console.log("You cannot delete this post");
         }
     })
 
@@ -114,3 +133,8 @@ function clearPostsContainer() {
     postsContainer.innerHTML = "";
 }
 
+function logOut() {
+
+    console.log("logout success")
+    authService.logout();
+}
